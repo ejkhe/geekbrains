@@ -6,14 +6,20 @@
 Если специальный символ введен после нескольких чисел, то вначале нужно добавить сумму этих чисел к полученной ранее сумме
 и после этого завершить программу.
 """
-# sm = 0
-# q = False
-# while q == False:
-#     numbers = input("Введи числа через пробел или Q для выхода ").split()
-#     for i in numbers:
-#         if i == "Q":
-#             q = True
-#             break
-#         else:
-#             sm += int(i)
-# print(sm)
+result = 0
+qt = False
+
+while not qt:
+    user_input = input("Введи числа через пробел или Q для выхода ").split()
+    if "Q" in user_input:
+        index = user_input.index("Q")
+        if index > 0:
+            for i in user_input[:index]:
+                result += int(i)
+        qt = True
+        print(result)
+        break
+    else:
+        for i in user_input:
+            result += int(i)
+        print(result)
